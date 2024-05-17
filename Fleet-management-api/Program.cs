@@ -1,6 +1,13 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Fleet_management_api.Context;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// variabel para la cadena de coneccion
+var connectionString = builder.Configuration.GetConnectionString("connection");
+// registrar servicio para la coneccion
+builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
