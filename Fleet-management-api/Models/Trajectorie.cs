@@ -4,9 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Fleet_management_api.Models
 {
-	public class Trajectorie
-	{
+    public class Trajectorie
+    {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public int TaxiId { get; set; }

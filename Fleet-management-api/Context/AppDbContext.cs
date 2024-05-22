@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata;
 using Fleet_management_api.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,16 @@ namespace Fleet_management_api.Context
 		}
 		public DbSet<Taxi> Taxis { get; set; }
 		public DbSet<Trajectorie> Trajectories { get; set; }
-	}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Taxi>()
+                .HasMany(t => t.Trajectories)           // Un Taxi puede tener muchas trayectorias
+                .WithOne(p => p.Taxi)            // Cada Trayectoria pertenece a un solo taxi
+                .HasForeignKey(p => p.TaxiId);  // Clave externa en trayectorias que referencia TaxiID en Taxi
+        }
+    }
+
+    
 }
 

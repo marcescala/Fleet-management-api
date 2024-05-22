@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // variabel para la cadena de coneccion
 var connectionString = builder.Configuration.GetConnectionString("connection");
 // registrar servicio para la coneccion
-builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
+builder.Services.AddDbContext<AppDbContext>(options =>
+options.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
