@@ -5,6 +5,11 @@ VisualStudioVersion = 25.0.1706.11
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fleet-management-api", "Fleet-management-api\Fleet-management-api.csproj", "{60137836-1FE9-4A46-84E7-C8DCDBBB30E7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{CB061F0D-6C83-423D-BB10-518F42755477}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

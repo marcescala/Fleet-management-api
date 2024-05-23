@@ -11,7 +11,7 @@ namespace Fleet_management_api.Models
 
         public string? Plate { get; set; }
 
-        public ICollection<Trajectorie>? Trajectories { get; }
+        public ICollection<Trajectory>? Trajectories;
     }
 }
 

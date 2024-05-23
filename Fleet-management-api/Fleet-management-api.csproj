@@ -23,9 +23,16 @@
   <ItemGroup>
     <None Remove="Models\" />
     <None Remove="Context\" />
+    <None Remove="DTO\" />
+    <None Remove="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Context\" />
+    <Folder Include="DTO\" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" />
   </ItemGroup>
 </Project>
