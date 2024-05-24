@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Fleet_management_api.Models
 {
-    public class Trajectorie
+    public class Trajectory
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
