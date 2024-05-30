@@ -13,6 +13,7 @@ namespace Fleet_management_api.Context
 		}
 		public DbSet<Taxi> Taxis { get; set; }
 		public DbSet<Trajectory> Trajectories { get; set; }
+        public object Trajectory { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
