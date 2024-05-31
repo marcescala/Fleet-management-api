@@ -23,7 +23,8 @@ namespace Fleet_management_api.Models
 
         
         public double Longitude { get; set; }
-        public object Longitud { get; internal set; }
+
+  
     }
 }
 

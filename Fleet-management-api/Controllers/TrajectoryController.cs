@@ -43,7 +43,6 @@ namespace Fleet_management_api.Controllers
             return trajectories;
         }
 
-
         // GET api/values/5
         //[HttpGet("{id}")]
         //public string Get(int id)
