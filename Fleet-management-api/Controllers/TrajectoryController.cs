@@ -23,50 +23,36 @@ namespace Fleet_management_api.Controllers
         }
 
         [HttpGet("{taxiId}")]
-        public async Task<ActionResult<IEnumerable<Trajectory>>> GetTrajectoriesByTaxiIdAndDateAsync(
+        public async Task<ActionResult<IEnumerable<TrajectoryDTO>>> GetTrajectoriesByTaxiIdAndDateAsync(
             int taxiId, [FromQuery] DateTime date, [FromQuery] PaginationDTO paginationDTO)
         {
             var queryable = _context.Trajectories.AsQueryable();
             await HttpContext.InsertPaginationHeader(queryable);
-
             var searchDate = date.ToUniversalTime().Date;
-            var trajectories = await queryable.Paginate(paginationDTO)
+            var query = _context.Trajectories
                 .Where(t => t.TaxiId == taxiId && t.Date.Date == searchDate)
-             
+                .Select(t => new TrajectoryDTO
+                {
+                    Date = t.Date,
+                    Longitude = t.Longitude,
+                    Latitude = t.Latitude
+                });
+            var paginatedResult = await query
+                .Paginate(paginationDTO)
                 .ToListAsync();
 
-            if (trajectories == null)
+
+         
+
+            if (paginatedResult == null)
             {
                 return NotFound();
             }
 
-            return trajectories;
+            return paginatedResult;
         }
 
-        // GET api/values/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        //// POST api/values
-        //[HttpPost]
-        //public void Post([FromBody]string value)
-        //{
-        //}
-
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+     
     }
 }
 
