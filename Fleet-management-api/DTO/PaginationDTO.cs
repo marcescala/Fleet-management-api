@@ -13,7 +13,7 @@ namespace Fleet_management_api.DTO
             get { return size; }
             set
             {
-                size = (value > maxSize) ? maxSize : value;//previene que el usuario mande cantidades incoherentes de registros por pág.
+                size = (value > maxSize) ? maxSize : value;//si el usuario escribe una cantidad mayor a maxSize asume el valor mayor.
             }
         }
         

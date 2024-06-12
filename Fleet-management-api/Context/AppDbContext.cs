@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Reflection.Metadata;
-using Fleet_management_api.Models;
-using Microsoft.EntityFrameworkCore;
+using Fleet_management_api.Models;// importa los modelos
+using Microsoft.EntityFrameworkCore;// importa clases y metodos
 
 namespace Fleet_management_api.Context
 {
-	public class AppDbContext : DbContext
+	public class AppDbContext : DbContext 
 	{
 		public AppDbContext(DbContextOptions<AppDbContext>options): base(options)
 		{
@@ -13,6 +13,7 @@ namespace Fleet_management_api.Context
 		}
 		public DbSet<Taxi> Taxis { get; set; }
 		public DbSet<Trajectory> Trajectories { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
