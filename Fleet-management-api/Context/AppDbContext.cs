@@ -15,7 +15,7 @@ namespace Fleet_management_api.Context
 		public DbSet<Trajectory> Trajectories { get; set; }
         
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder) // Configura las relaciones entre las entidades Fluent Api
         {
             modelBuilder.Entity<Taxi>()
                 .HasMany(t => t.Trajectories)           // Un Taxi puede tener muchas trayectorias

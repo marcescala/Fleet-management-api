@@ -27,6 +27,7 @@ namespace Fleet_management_api.Controllers
             int taxiId, [FromQuery] DateTime date, [FromQuery] PaginationDTO paginationDTO)
         {
             var queryable = _context.Trajectories.AsQueryable();
+            // Consulta para obtener todas las trayectorias
             await HttpContext.InsertPaginationHeader(queryable);
             var searchDate = date.ToUniversalTime().Date;
             var query = _context.Trajectories
@@ -37,6 +38,7 @@ namespace Fleet_management_api.Controllers
                     Longitude = t.Longitude,
                     Latitude = t.Latitude
                 });
+            // Consulta que filtra por TaxiId y fecha, selecciona las coincidencias 
             var paginatedResult = await query
                 .Paginate(paginationDTO)
                 .ToListAsync();
